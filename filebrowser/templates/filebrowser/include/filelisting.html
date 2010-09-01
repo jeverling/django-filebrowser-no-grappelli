@@ -1,4 +1,6 @@
 {% load i18n adminmedia fb_tags fb_versions %}
+{% load thumbnail %}
+
 
 {% for file in page.object_list %}
     <tr class="{% cycle 'row1' 'row2' %}{% if file.filetype == "Folder" %} fb_folder{% endif %}">
@@ -47,7 +49,7 @@
         <!-- THUMBNAIL -->
         <td class="fb_thumbnail">
             {% if file.filetype == "Image" %}
-                <a href="{{ file.url_full }}" class="fb_viewlink"><img src="{% version file.path settings_var.ADMIN_THUMBNAIL %}" title="{% trans 'View Image' %}" /></a>
+                <a href="{{ file.url_full }}" class="fb_viewlink"><img src="{% thumbnail file.path "100x100" %}" title="{% trans 'View Image' %}" /></a>
             {% endif %}
         </td>
         

@@ -66,21 +66,13 @@ SELECT_FORMATS = getattr(settings, "FILEBROWSER_SELECT_FORMATS", {
 # VERSION URL: VERSIONS_BASEDIR/original_path/originalfilename_versionsuffix.extension
 VERSIONS_BASEDIR = getattr(settings, 'FILEBROWSER_VERSIONS_BASEDIR', '')
 # Versions Format. Available Attributes: verbose_name, width, height, opts
-VERSIONS = getattr(settings, "FILEBROWSER_VERSIONS", {
-    'fb_thumb': {'verbose_name': 'Admin Thumbnail', 'width': 60, 'height': 60, 'opts': 'crop upscale'},
-    'thumbnail': {'verbose_name': 'Thumbnail (140px)', 'width': 140, 'height': '', 'opts': ''},
-    'small': {'verbose_name': 'Small (300px)', 'width': 300, 'height': '', 'opts': ''},
-    'medium': {'verbose_name': 'Medium (460px)', 'width': 460, 'height': '', 'opts': ''},
-    'big': {'verbose_name': 'Big (620px)', 'width': 620, 'height': '', 'opts': ''},
-    'cropped': {'verbose_name': 'Cropped (60x60px)', 'width': 60, 'height': 60, 'opts': 'crop'},
-    'croppedthumbnail': {'verbose_name': 'Cropped Thumbnail (140x140px)', 'width': 140, 'height': 140, 'opts': 'crop'},
-})
+VERSIONS = getattr(settings, "FILEBROWSER_VERSIONS", {})
 # Versions available within the Admin-Interface.
-ADMIN_VERSIONS = getattr(settings, 'FILEBROWSER_ADMIN_VERSIONS', ['thumbnail','small', 'medium','big'])
+ADMIN_VERSIONS = getattr(settings, 'FILEBROWSER_ADMIN_VERSIONS', [])
 # Which Version should be used as Admin-thumbnail.
-ADMIN_THUMBNAIL = getattr(settings, 'FILEBROWSER_ADMIN_THUMBNAIL', 'fb_thumb')
+ADMIN_THUMBNAIL = getattr(settings, 'FILEBROWSER_ADMIN_THUMBNAIL', None)
 # Preview Version
-PREVIEW_VERSION = getattr(settings, 'FILEBROWSER_PREVIEW_VERSION', 'small')
+PREVIEW_VERSION = getattr(settings, 'FILEBROWSER_PREVIEW_VERSION', None)
 
 # EXTRA SETTINGS
 # True to save the URL including MEDIA_URL to your model fields
