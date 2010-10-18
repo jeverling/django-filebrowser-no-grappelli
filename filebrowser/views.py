@@ -256,7 +256,10 @@ def _check_file(request):
         for k,v in request.POST.items():
             if k != "folder":
                 v = convert_filename(v)
-                if os.path.isfile(smart_str(os.path.join(MEDIA_ROOT, DIRECTORY, folder, v))):
+                
+                #print MEDIA_ROOT, DIRECTORY, folder, v, os.path.join(MEDIA_ROOT, DIRECTORY, folder, v)
+                
+                if os.path.isfile(smart_str(os.path.join(MEDIA_ROOT, DIRECTORY, folder.strip('/'), v))):
                     fileArray[k] = v
     
     return HttpResponse(simplejson.dumps(fileArray))
