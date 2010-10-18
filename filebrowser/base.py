@@ -95,7 +95,7 @@ class FileObject(object):
         Path relative to initial directory.
         """
         directory_re = re.compile(r'^(%s)' % (DIRECTORY))
-        value = directory_re.sub('', self.path)
+        value = directory_re.sub('', self.path).strip('/')
         return u"%s" % value
     path_relative_directory = property(_path_relative_directory)
     
