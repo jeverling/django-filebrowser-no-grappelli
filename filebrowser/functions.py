@@ -35,7 +35,8 @@ def url_to_path(value):
     
     mediaurl_re = re.compile(r'^(%s)' % (MEDIA_URL))
     value = mediaurl_re.sub('', value)
-    return value
+    # path has to be relative, so we split the leading slash if one exists
+    return not os.path.isabs(value) and value or value[1:]
 
 
 def path_to_url(value):
